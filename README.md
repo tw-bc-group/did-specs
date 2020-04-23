@@ -15,7 +15,8 @@ This document is the ThoughtWorks DID specification.
     - [Privacy considerations](#privacy-considerations)
     - [Security considerations](#security-considerations)
   - [Verifiable Claims](#verifiable-claims)
-
+  - [Use Cases](#use-cases)
+    - [Authentication](#authentication)
 ## Abstract
 
 ## Motivation
@@ -125,3 +126,8 @@ Returns `204`
 
 
 ## Verifiable Claims
+
+## Use Cases
+
+### Authentication
+![authenication flow](./imgs/authentication-flow.png)
