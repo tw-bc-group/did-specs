@@ -1,0 +1,127 @@
+# ThoughtWorks DID
+
+This document is the ThoughtWorks DID specification.
+
+## Table of Contents
+  - [Abstract](#abstract)
+  - [Motivation](#motivation)
+  - [DID](#did)
+    - [DID Definition](#did-definition)
+    - [DID Document](#did-document)
+    - [Create DID](#create-did)
+    - [Read DID](#read-did)
+    - [Update DID](#update-did)
+    - [Revoke DID](#revoke-did)
+    - [Privacy considerations](#privacy-considerations)
+    - [Security considerations](#security-considerations)
+  - [Verifiable Claims](#verifiable-claims)
+
+## Abstract
+
+## Motivation
+[去中心化身份试图解决的矛盾](https://www.zybuluo.com/lambeta/note/1695624)
+
+## DID
+
+### DID Definition
+DID 是 Decentralized Identifier 的简称
+```
+did:tw:12AE66CDc592e10B60f9097a7b0D3C59fce29876
+
+did       -> URL scheme identifier
+tw        -> Identifier for the DID method
+12AE66CDc592e10B60f9097a7b0D3C59fce29876 -> DID method-specific identifier is a checksumed address like Etheruem.
+```
+
+### DID Document
+描述了 DID 主体的一组数据。包含了 DID 标识符，公钥信息，服务端口以及签名等信息。有时，也会包含描述 DID 主体的属性或声明信息。以 [JSON-LD](https://www.w3.org/TR/did-core/#bib-json-ld) 方式呈现。
+
+
+
+### Create DID
+```json
+POST /dids
+
+{
+  "did": "did:tw:12AE66CDc592e10B60f9097a7b0D3C59fce29876",
+  "publicKey": "0440b3fa8e848297ff26b04088263101fa87d3541ac48bbc32fe7b77b73246578241236ab6097d4012ac17a514272a54a7b728790e914bbbff431e49d421aa1eef" ,
+  "signature": "54CnhKVqE63rMAeM1b8CyQjL4c8teS1DoyTfZnKXRvEEGWK81YA6BAgQHRah4z1VV4aJpd2iRHCrPoNTxGXBBoFw"
+}
+```
+Returns `201`
+### Read DID
+```json
+GET /dids/{did}
+```
+Returns `200` with Document Object in JSON-LD format
+```json
+{
+  "@context": "https://www.w3.org/ns/did/v1",
+  "id": "did:tw:12AE66CDc592e10B60f9097a7b0D3C59fce29876",
+  "created":"2020-04-20T10:27:27.326Z",
+  "publicKeys": [
+	{
+	  "id": "did:tw:12AE66CDc592e10B60f9097a7b0D3C59fce29876#keys-1",
+	  "type": "Secp256k1",
+	  "publicKey": "0440b3fa8e848297ff26b04088263101fa87d3541ac48bbc32fe7b77b73246578241236ab6097d4012ac17a514272a54a7b728790e914bbbff431e49d421aa1eef"
+	}]
+}
+```
+
+### Update DID
+```json
+PUT /dids/{did}
+{
+  "publicKey": "0189140b3fa8e848297ff26b04088263101fa87d3541ac48bbc32fe7b77b73246578241236ab6097d4012ac17a514272a54a7b728790e914bbbff431e49d421aa1f12",
+  "signatures": [
+    {
+        "id":"did:tw:12AE66CDc592e10B60f9097a7b0D3C59fce29876#keys-1",
+        "type":"Secp256k1",
+        "signature":"54CnhKVqE63rMAeM1b8CyQjL4c8teS1DoyTfZnKXRvEEGWK81YA6BAgQHRah4z1VV4aJpd2iRHCrPoNTxGXBBoFw"
+    },
+    {
+        "id":"did:tw:12AE66CDc592e10B60f9097a7b0D3C59fce29876#keys-2",
+        "type":"Secp256k1",
+        "signature":"26kkhZbQLSNvEKbPvx18GRfSoVMu2bDXutvnWcQQyrGxqz5VKijkFV2GohbkbafPa2WqVad7wnyLwx1zxjvVfvSa"
+    }
+  ]
+}
+```
+Returns `200` with Document Object
+```json
+{
+  "@context": "https://www.w3.org/ns/did/v1",
+  "id": "did:tw:12AE66CDc592e10B60f9097a7b0D3C59fce29876",
+  "created":"2020-04-20T10:27:27.326Z",
+  "updated":"2020-04-20T12:30:20.326Z",
+  "publicKeys": [
+	{
+	  "id": "did:tw:12AE66CDc592e10B60f9097a7b0D3C59fce29876#keys-1",
+	  "type": "Secp256k1",
+	  "publicKey": "0189140b3fa8e848297ff26b04088263101fa87d3541ac48bbc32fe7b77b73246578241236ab6097d4012ac17a514272a54a7b728790e914bbbff431e49d421aa1f12"
+	}
+  ]
+}
+```
+
+### Revoke DID
+```json
+DELETE /dids/{did}
+{
+  "signatures": [
+	{
+	 "id":"did:tw:12AE66CDc592e10B60f9097a7b0D3C59fce29876#keys-2",
+	 "type":"Secp256k1",
+	 "signature":"26kkhZbQLSNvEKbPvx18GRfSoVMu2bDXutvnWcQQyrGxqz5VKijkFV2GohbkbafPa2WqVad7wnyLwx1zxjvVfvSa"
+	}
+  ]
+}
+```
+Returns `204`
+
+### Privacy considerations
+
+### Security considerations
+
+
+## Verifiable Claims
