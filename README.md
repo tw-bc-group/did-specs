@@ -14,7 +14,8 @@ This document is the ThoughtWorks DID specification.
     - [Revoke DID](#revoke-did)
     - [Privacy considerations](#privacy-considerations)
     - [Security considerations](#security-considerations)
-  - [Verifiable Claims](#verifiable-claims)
+  - [Verifiable Credential](#verifiable-claims)
+    - [VC Definition](#vc-definition)
   - [Use Cases](#use-cases)
     - [Authentication](#authentication)
 ## Abstract
@@ -125,7 +126,52 @@ Returns `204`
 ### Security considerations
 
 
-## Verifiable Claims
+## Verifiable Credential
+Verifiable Credential is a set of one or more claims/assertions. It has `Metadata`, `Claim` and `Proof` properties. A alumniCredential, for example, the Metadata of it could include the credential's type, issuer, issue time, etc. A Cliam could be **who is a alumni of an University** and the University then sign the credential in digital to give a proof for later verify.
+
+![A verifiable credential example](./imgs/verifiable-credential.svg)
+### VC Definition
+Verifiable Credential follows the [JWT standard](https://tools.ietf.org/html/rfc7519).
+```
+header.payload.signature
+```
+#### Header
+```
+{
+  "alg": "ES256",
+  "typ": "JWT"
+}
+```
+* alg: the signing algorithm
+* typ: the type of Token
+	* JWT: JSON Web Token (JWT) is an open standard (RFC 7519) that defines a compact and self-contained way for securely transmitting information between parties as a JSON object.
+    
+#### Payload
+```
+{
+   "@context": ["https://www.w3.org/2018/credentials/v1",
+   "https://blockchain.thoughtworks.cn/credentials/v1"],
+   "id": "xyzxyzxyz",
+   "ver": "0.7.0",
+   "iss": "did:tw:f340A40E197c77979bE698401fd03251741137eE",
+   "iat": 1588059342,
+   "exp": 1651131342,
+   "typ": ["VerifiableCredential", "HealthyCredential"],
+   "sub": {
+     "id": "did:tw:12AE66CDc592e10B60f9097a7b0D3C59fce29876",
+     "healthyStatus": {
+       "typ": "HealthyStatus",
+       "val": "HEALTHY"
+     }
+   }
+}
+```
+
+#### Signature
+JWT Digital Signature is way to give a proof for the verifiable credential.
+```
+signature = Base64(sign(Base64(header).Base64(payload)))
+```
 
 ## Use Cases
 
