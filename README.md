@@ -18,6 +18,8 @@ This document is the ThoughtWorks DID specification.
     - [VC Definition](#vc-definition)
   - [Use Cases](#use-cases)
     - [Authentication](#authentication)
+    - [Issue Claims](#issue-claims)
+    - [Verify Claims](#verify-claims)
 ## Abstract
 
 ## Motivation
@@ -127,7 +129,7 @@ Returns `204`
 
 
 ## Verifiable Credential
-Verifiable Credential is a set of one or more claims/assertions. It has `Metadata`, `Claim` and `Proof` properties. A alumniCredential, for example, the Metadata of it could include the credential's type, issuer, issue time, etc. A Cliam could be **who is a alumni of an University** and the University then sign the credential in digital to give a proof for later verify.
+Verifiable Credential is a set of one or more claims/assertions. It has `Metadata`, `Claim` and `Proof` properties. A alumniCredential, for example, the Metadata of it could include the credential's type, issuer, issue time, etc. A Claim could be **who is a alumni of an University** and the University then sign the credential in digital to give a proof for later verify.
 
 ![A verifiable credential example](./imgs/verifiable-credential.svg)
 ### VC Definition
@@ -170,10 +172,15 @@ header.payload.signature
 #### Signature
 JWT Digital Signature is way to give a proof for the verifiable credential.
 ```
-signature = Base64(sign(Base64(header).Base64(payload)))
+signature = Base64(ECDSASHA256(Base64(header).Base64(payload), pubkey, prikey))
 ```
 
 ## Use Cases
 
 ### Authentication
 ![authenication flow](./imgs/authentication-flow.png)
+
+### Issue Claims
+
+### Verify Claims
+![verify claims](./imgs/verify-claims.png)
