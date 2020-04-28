@@ -28,7 +28,7 @@ This document is the ThoughtWorks DID specification.
 ## DID
 
 ### DID Definition
-DID 是 Decentralized Identifier 的简称
+DID is a globally unique identifier that does not require a centralized registration authority because it is registered with distributed ledger technology (DLT) or other form of decentralized network. 
 ```
 did:tw:12AE66CDc592e10B60f9097a7b0D3C59fce29876
 
@@ -38,7 +38,7 @@ tw        -> Identifier for the DID method
 ```
 
 ### DID Document
-描述了 DID 主体的一组数据。包含了 DID 标识符，公钥信息，服务端口以及签名等信息。有时，也会包含描述 DID 主体的属性或声明信息。以 [JSON-LD](https://www.w3.org/TR/did-core/#bib-json-ld) 方式呈现。
+A DID document is the resource that is associated with a decentralized identifier (DID). DID documents typically express verification methods (such as public keys) and services that can be used to interact with a DID controller.
 
 
 
@@ -181,6 +181,7 @@ signature = Base64(ECDSASHA256(Base64(header).Base64(payload), pubkey, prikey))
 ![authenication flow](./imgs/authentication-flow.png)
 
 ### Issue Claims
+![issue claims](./imgs/issue-claims.svg)
 
 ### Verify Claims
-![verify claims](./imgs/verify-claims.png)
+![verify claims](./imgs/verify-claims.svg)
