@@ -126,6 +126,13 @@ Returns `204`
 
 ### Privacy considerations
 
+- Verifier can verify holder's claim to check if the issuer issue the claim to the holder. That means holder will give a signature to verifier and issuer should sign the claim.
+- Issuer can verify holder's DID to check he/she’s identity. That means holder will give a signature of DID to issuer.
+- Holder can verify issuer's DID to check issuer's identity. That means issuer should register DID in the blockchain and give a signature to holder.
+- Holder can verify Verifier's DID to check Verifier's identity. That means Verifier should register DID in the blockchain and give a signature to holder.
+- Claim is encrypted and only holder can decode it. Verifier might get the claim and verify it, it's better to have a mechanism to verify claim without get the privacy information.
+
+
 ### Security considerations
 
 
