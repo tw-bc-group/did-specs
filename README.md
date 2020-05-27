@@ -189,15 +189,15 @@ signature = Base64(ECDSASHA256(Base64(header).Base64(payload), pubkey, prikey))
 
 ## Supported Signature Algorithms
 
-ES256 - ECDSA with SHA256, with Curve secp256k1, P-256, etc...
-ES224 - ECDSA with SHA224,
-ES384 - ECDSA with SHA384,
-ES512 - ECDSA with SHA512,
-ES3-224 - ECDSA with SHA3 224
-ES3-256 - ECDSA with SHA3 256
-ES3-384 - ECDSA with SHA3 384
-ES3-512 - ECDSA with SHA3 512
-ER160 - ECDSA with RIPEMD160
-SM - SM2 with SM3
-EDS512 - EDDSA with SHA256
+- ES256 - ECDSA with SHA256, with Curve secp256k1, P-256, etc...
+- ES224 - ECDSA with SHA224,
+- ES384 - ECDSA with SHA384,
+- ES512 - ECDSA with SHA512,
+- ES3-224 - ECDSA with SHA3 224
+- ES3-256 - ECDSA with SHA3 256
+- ES3-384 - ECDSA with SHA3 384
+- ES3-512 - ECDSA with SHA3 512
+- ER160 - ECDSA with RIPEMD160
+- SM - SM2 with SM3
+- EDS512 - EDDSA with SHA256
 
