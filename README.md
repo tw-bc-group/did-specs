@@ -25,7 +25,7 @@ This document is the ThoughtWorks DID specification.
 ## Motivation
 [去中心化身份试图解决的矛盾](https://www.zybuluo.com/lambeta/note/1695624)
 
-[The contradiction that the decentralized identity try to solve](https://link.medium.com/v9DqkPkbP7) 
+[The contradiction that the decentralized identity try to solve](https://medium.com/@lambetaX/the-contradiction-that-the-decentralized-identity-try-to-solve-c90838d357d8) 
 
 ## DID
 
