@@ -24,11 +24,16 @@ This document is the ThoughtWorks DID specification.
 
 ## Motivation
 [去中心化身份试图解决的矛盾](https://www.zybuluo.com/lambeta/note/1695624)
+[The contradiction that the decentralized identity try to solve](https://link.medium.com/v9DqkPkbP7) 
 
 ## DID
 
 ### DID Definition
+<<<<<<< HEAD
 DID is a globally unique identifier that does not require a centralized registration authority because it is registered with distributed ledger technology (DLT) or other form of decentralized network. 
+=======
+DID is the abbreviation for Decentralized Identifier.
+>>>>>>> feat: add mitivation in english
 ```
 did:tw:12AE66CDc592e10B60f9097a7b0D3C59fce29876
 
@@ -38,9 +43,7 @@ tw        -> Identifier for the DID method
 ```
 
 ### DID Document
-A DID document is the resource that is associated with a decentralized identifier (DID). DID documents typically express verification methods (such as public keys) and services that can be used to interact with a DID controller.
-
-
+A DID document is the resource that is associated with a decentralized identifier (DID) that is presented as [JSON-LD] (https://www.w3.org/TR/did-core/#bib-json-ld). DID documents typically express verification methods (such as public keys) and services that can be used to interact with a DID controller.
 
 ### Create DID
 ```json
