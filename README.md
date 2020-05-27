@@ -24,22 +24,20 @@ This document is the ThoughtWorks DID specification.
 
 ## Motivation
 [去中心化身份试图解决的矛盾](https://www.zybuluo.com/lambeta/note/1695624)
+
 [The contradiction that the decentralized identity try to solve](https://link.medium.com/v9DqkPkbP7) 
 
 ## DID
 
 ### DID Definition
-<<<<<<< HEAD
 DID is a globally unique identifier that does not require a centralized registration authority because it is registered with distributed ledger technology (DLT) or other form of decentralized network. 
-=======
-DID is the abbreviation for Decentralized Identifier.
->>>>>>> feat: add mitivation in english
+
 ```
 did:tw:12AE66CDc592e10B60f9097a7b0D3C59fce29876
 
 did       -> URL scheme identifier
 tw        -> Identifier for the DID method
-12AE66CDc592e10B60f9097a7b0D3C59fce29876 -> DID method-specific identifier is a checksumed address like Etheruem.
+12AE66CDc592e10B60f9097a7b0D3C59fce29876 -> DID method-specific identifier is a checksumed address in Etheruem.
 ```
 
 ### DID Document
