@@ -23,9 +23,9 @@ This document is the ThoughtWorks DID specification.
 ## Abstract
 
 ## Motivation
-[去中心化身份试图解决的矛盾](https://www.zybuluo.com/lambeta/note/1695624)
+[企业和用户关于隐私数据博弈的均衡点——自主身份](https://insights.thoughtworks.cn/self-sovereign-identity/)
 
-[The contradiction that the decentralized identity try to solve](https://medium.com/@lambetaX/the-contradiction-that-the-decentralized-identity-try-to-solve-c90838d357d8) 
+[Self-Sovereign Identity — The Equilibrium Point of the Personal Identity Information Game](https://medium.com/@lambetaX/the-contradiction-that-the-decentralized-identity-try-to-solve-c90838d357d8) 
 
 ## DID
 
